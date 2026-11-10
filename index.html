@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RigDoctor — Autonomous Hardware Diagnostic Suite</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hud-background"></div>
+  
+  <header class="app-header">
+    <div class="logo-area">
+      <div class="status-pulse"></div>
+      <h1>RIG<span>DOCTOR</span></h1>
+    </div>
+    <div class="system-badge" id="oemDisplay">Detecting Hardware Architecture...</div>
+  </header>
+
+  <main class="dashboard-container">
+    <!-- Infographics Hero Section -->
+    <section class="hero-infographic">
+      <div class="metric-card">
+        <h3>MICROSOFT KB ENGINE</h3>
+        <p class="metric-value">Active Sync</p>
+        <span class="subtext">Live driver vulnerability indexing</span>
+      </div>
+      <div class="metric-card">
+        <h3>SAFETY PROTOCOL</h3>
+        <p class="metric-value">Zero-Data-Loss</p>
+        <span class="subtext">Mandatory System Restore Checkpoint</span>
+      </div>
+      <div class="metric-card">
+        <h3>EXECUTION METHOD</h3>
+        <p class="metric-value">Native PnPUtil</p>
+        <span class="subtext">No third-party bloatware wrappers</span>
+      </div>
+    </section>
+
+    <!-- Main Diagnostic Console -->
+    <section class="console-box">
+      <div class="console-nav">
+        <button class="nav-tab active" id="tabAuto">Auto Diagnostic Scan</button>
+        <button class="nav-tab" id="tabManual">Targeted Component Probe</button>
+      </div>
+
+      <div class="console-body" id="scanView">
+        <div class="radar-container" id="radarGraphic">
+          <div class="radar-sweep"></div>
+          <p id="radarStatus">Local Bridge Standby: Click "Initialize Rig Scan"</p>
+        </div>
+        <div class="action-bar">
+          <button class="btn-primary" id="btnStartScan">INITIALIZE RIG SCAN</button>
+        </div>
+      </div>
+
+      <!-- Diagnostic Results & Probing -->
+      <div class="diagnostic-flow hidden" id="resultsView">
+        <h2 class="section-title">Diagnostic Findings & Root Cause Isolation</h2>
+        <div class="findings-list" id="findingsContainer"></div>
+
+        <div class="probing-section hidden" id="probeSection">
+          <h3>Targeted Isolation Routine</h3>
+          <p id="probeContext">Please answer the following question to isolate whether this is an inf mismatch or hardware power state fault:</p>
+          <div class="input-group">
+            <input type="text" id="userProbeResponse" placeholder="e.g., The issue started right after the recent Tuesday update...">
+            <button class="btn-secondary" id="btnSubmitProbe">Evaluate Response</button>
+          </div>
+        </div>
+
+        <!-- Permission & Education Gate -->
+        <div class="education-gate hidden" id="educationGate">
+          <div class="warning-callout">
+            <h4>Safety & Procedure Briefing</h4>
+            <p id="educationText"></p>
+            <ul>
+              <li>A native Windows System Restore Point will be committed.</li>
+              <li>Existing driver packages will be backed up to <code>C:\RigDoctorBackups</code>.</li>
+              <li>Device will be power-cycled to clear stale kernel handles.</li>
+            </ul>
+          </div>
+          <div class="consent-row">
+            <label class="checkbox-container">
+              <input type="checkbox" id="userConsentCheckbox">
+              <span class="checkmark"></span>
+              I authorize RigDoctor to execute hardware recovery operations.
+            </label>
+            <button class="btn-action-primary" id="btnExecuteFix" disabled>EXECUTE AUTOMATED REPAIR</button>
+          </div>
+        </div>
+
+        <!-- OEM Fallback -->
+        <div class="oem-fallback hidden" id="oemFallback">
+          <p>RigDoctor recommends obtaining the manufacturer-validated firmware package.</p>
+          <a href="#" target="_blank" id="oemRedirectBtn" class="btn-secondary">Go to OEM Support Center</a>
+        </div>
+      </div>
+
+      <!-- Post-Action Verification & Feedback -->
+      <div class="feedback-panel hidden" id="feedbackPanel">
+        <h3>Repair Completed. Post-Run Verification</h3>
+        <p>Did the recommended operation resolve your issue without requiring Microsoft Support?</p>
+        <div class="star-rating" id="ratingContainer">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <textarea id="feedbackComment" placeholder="Provide notes on your hardware behavior..."></textarea>
+        <button class="btn-primary" id="btnSendFeedback">Submit System Assessment</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Monetization / Support Bar -->
+  <footer class="app-footer">
+    <p>RigDoctor is free and open utility. Support ongoing maintenance of OEM driver indexing:</p>
+    <div class="sponsor-links">
+      <a href="https://github.com/sponsors" target="_blank" class="sponsor-btn">Sponsor RigDoctor Project</a>
+      <a href="https://buymeacoffee.com" target="_blank" class="sponsor-btn">Buy Developer a Coffee</a>
+    </div>
+  </footer>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
